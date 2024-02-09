@@ -1,5 +1,6 @@
 import {Router} from 'express'
 import User from '../models/users.js'
+//import foodLogger from '../models/foodLogger.js';
 
 
 const router = new Router()
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // POST to create a user 
-router.post('/signup', async (req, res) => {
+router.post('/Users', async (req, res) => {
     try {
       const { username, email, password } = req.body;
   
@@ -73,6 +74,27 @@ router.put("/:id", async (req, res) => {
 router.post('/logout', (req, res) => {
     res.status(200).json({ message: 'Logout successful.' });
   });
+// // POST to create new user and foodlog
+//   router.post("/signup", async (req, res) => {
+//     console.log(req.body);
+//     try {
+//       const { user, foodLogger } = req.body;
+  
+//       // Create a new user
+//       const newUser = await User.create(user);
+  
+//       // Create a new food logger associated with the user
+//       const newFoodLog = await FoodLogger.create({
+//         user_id: newUser._id,
+//         ...foodLogger,
+//       });
+  
+//       res.status(203).json({ user: newUser, foodLog: newFoodLog });
+//     } catch (error) {
+//       console.log(error);
+//       res.status(500).json({ message: 'Internal server error' });
+//     }
+//   });
 
 
 export default router;

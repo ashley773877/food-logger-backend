@@ -37,6 +37,7 @@ ROUTES for users:
 4. POST for user logout 
 5. PUT to ubdate user
 6. DELETE user by id
+7. POST to create new user and foodlogger 
 
 
 
