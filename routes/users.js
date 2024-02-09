@@ -16,7 +16,7 @@ Router.post('/signup', async (req, res) => {
     try {
       const { username, email, password } = req.body;
   
-      // to Check if user already exists
+      // to Check if user already exists by checking email
       const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(400).json({ message: 'Email already exists. Please use a different email.' });
@@ -35,6 +35,15 @@ Router.post('/signup', async (req, res) => {
     }
   });
 
+ 
+ // GET returns a user by id 
+ 
+Router.get('/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if (!user) return res.status(404).json({msg: "Resource not found!"});
+    else res.json(user);
+});
 
 
 
