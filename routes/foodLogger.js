@@ -29,3 +29,18 @@ router.get('/foodlogs', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
+  // GET food log by ID
+router.get('/foodlogs/:id', async (req, res) => {
+  try {
+    const foodLog = await FoodLogger.findById(req.params.id);
+    
+    if (!foodLog) {
+      return res.status(404).json({ message: 'Food log not found.' });
+    }
+
+    res.status(200).json(foodLog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
