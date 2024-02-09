@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan'; 
 import { conn } from './db/conn.js';conn();
 import './load.Env.js'
+import userRouter from './routes/users.js'
 
 
 
@@ -16,7 +17,7 @@ app.use(morgan('dev')); // logger so you can see whats coming in
 app.use(express.json()); // to receive data in the body 
 app.use(express.urlencoded({extended: true})); // allow data in url string
 
-
+app.use('/api/users', userRouter)
 
 
 // GET to test route 
