@@ -31,9 +31,9 @@ router.get('/foodlogs', async (req, res) => {
   // GET food log by ID
 router.get('/foodlogs/:id', async (req, res) => {
   try {
-    const foodLog = await FoodLogger.findById(req.params.id);
+    const foodLog = await foodLogger.findById(req.params.id);
     
-    if (!foodLog) {
+    if (!foodLogger) {
       return res.status(404).json({ message: 'Food log not found.' });
     }
 
