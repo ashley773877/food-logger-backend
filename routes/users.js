@@ -26,14 +26,12 @@ router.post('/signup', async (req, res) => {
       // to Create a new user
       const newUser = new User({ username, email, password });
       await newUser.save();
-  
-      // Generate and send JWT token for authentication
-      const token = newUser.generateAuthToken();
-      res.status(201).json({ token });
+      res.json(newUser)
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
+    console.error(error);
+  //  
+   res.status(500).json({ message: 'Internal server error' });
+   }
   });
 
  

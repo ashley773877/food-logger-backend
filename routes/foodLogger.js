@@ -18,3 +18,14 @@ router.post('/foodlogs', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   }); 
+
+  // Get all food logs
+router.get('/foodlogs', async (req, res) => {
+    try {
+      const foodLogs = await foodLogs.find();
+      res.status(200).json(foodLogs);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
