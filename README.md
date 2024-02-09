@@ -6,12 +6,23 @@ this is a fitness food logger app where you will be able to
 - keep a history and track of the foods you have eaten
 - read motivational qoutes to keep you on track with your diet 
 
+- link to BACKEND repo
+1. https://github.com/ashley773877/food-logger-backend.git 
+
+- link to FRONTEND repo 
+https://github.com/ashley773877/food-logger-frontend.git
+
+
+
+
+ROUTES:
+1. 
 
 
 
 
 
-resources: styled-components 
+
 
 
 
@@ -27,5 +38,6 @@ DEPENDENCIES:
 3. cors
 4. mongoose
 5. dotenv
+6. Styled-components 
 (devdependency)
 1. nodemon

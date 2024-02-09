@@ -6,10 +6,7 @@ import './load.Env.js'
 
 
 
-
 //console.log(process.env.ATLAS_URI);
-
-
 const app = express()
 const PORT = process.env.PORT || 4000;
 
