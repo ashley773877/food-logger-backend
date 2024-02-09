@@ -6,10 +6,10 @@ const router = new Router()
 // Create a new food log
 router.post('/logs', async (req, res) => {
     try {
-      const { meal, timeOfDay, calories } = req.body;
+      const {user_id, meal, timeOfDay, calories } = req.body;
   
       // Create a new food log
-      const newFoodLog = new foodLogger({ meal, timeOfDay, calories });
+      const newFoodLog = new foodLogger({ user_id, meal, timeOfDay, calories });
       await newFoodLog.save();
   
       res.status(201).json(newFoodLog);
@@ -61,6 +61,22 @@ router.put('/foodlogs/:id', async (req, res) => {
     }
 
     res.status(200).json(updatedFoodLog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Delete a food log by ID
+router.delete('/foodlogs/:id', async (req, res) => {
+  try {
+    const deletedFoodLog = await FoodLogger.findByIdAndRemove(req.params.id);
+
+    if (!deletedFoodLog) {
+      return res.status(404).json({ message: 'Food log not found.' });
+    }
+
+    res.status(200).json({ message: 'Food log deleted successfully.' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
