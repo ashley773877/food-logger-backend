@@ -12,26 +12,6 @@ this is a fitness food logger app where you will be able to
 - link to FRONTEND repo 
 https://github.com/ashley773877/food-logger-frontend.git
 
-
-
-
-ROUTES:
-1. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 DEPENDENCIES: 
 1. express
 2. moragn
@@ -39,5 +19,36 @@ DEPENDENCIES:
 4. mongoose
 5. dotenv
 6. Styled-components 
+7. bcrypt
 (devdependency)
 1. nodemon
+
+
+
+
+
+BACKEND
+
+
+ROUTES for users:
+1. GET all users
+2. GET all users by id
+3. POST to create user
+4. POST for user logout 
+5. PUT to ubdate user
+6. DELETE user by id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

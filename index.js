@@ -17,7 +17,8 @@ app.use(morgan('dev')); // logger so you can see whats coming in
 app.use(express.json()); // to receive data in the body 
 app.use(express.urlencoded({extended: true})); // allow data in url string
 
-app.use('/api/users', userRouter)
+app.use('/api/users', userRouter); 
+//app.use('/signup', userRouter);
 
 
 // GET to test route 
