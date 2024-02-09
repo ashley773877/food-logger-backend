@@ -59,14 +59,6 @@ usersSchema.pre('save', async function(next) {
 
 
 
-// {
-//     "username": "Ashley1",
-//     "email": "miranash24@gmail.com",
-//     "password": "ash123",
-//     "age": 20
-    
-//     }
-
 
 
 export default mongoose.model('User', usersSchema);

@@ -11,7 +11,6 @@ router.post('/logs', async (req, res) => {
       // Create a new food log
       const newFoodLog = new foodLogger({ user_id, meal, timeOfDay, calories });
       await newFoodLog.save();
-  
       res.status(201).json(newFoodLog);
     } catch (error) {
       console.error(error);
@@ -68,9 +67,9 @@ router.put('/foodlogs/:id', async (req, res) => {
 });
 
 // Delete a food log by ID
-router.delete('/foodlogs/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const deletedFoodLog = await FoodLogger.findByIdAndRemove(req.params.id);
+    const deletedFoodLog = await foodLogger.findByIdAndDelete(req.params.id);
 
     if (!deletedFoodLog) {
       return res.status(404).json({ message: 'Food log not found.' });

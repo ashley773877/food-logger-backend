@@ -24,4 +24,7 @@ const foodLoggerSchema = new mongoose.Schema({
 
 }, {timestamps: true});
 
+foodLoggerSchema.index({meal: 1}) 
+foodLoggerSchema.index({calories: 1}) 
+
 export default mongoose.model('FoodLogger', foodLoggerSchema);
