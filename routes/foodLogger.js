@@ -21,7 +21,7 @@ router.post('/logs', async (req, res) => {
   // Get all food logs
 router.get('/foodlogs', async (req, res) => {
     try {
-      const foodLogs = await foodLogs.find();
+      const foodLogs = await foodLogger.find();
       res.status(200).json(foodLogs);
     } catch (error) {
       console.error(error);
@@ -49,7 +49,7 @@ router.put('/foodlogs/:id', async (req, res) => {
   try {
     const { meal, timeOfDay, calories } = req.body;
 
-    const updatedFoodLog = await FoodLogger.findByIdAndUpdate(
+    const updatedFoodLog = await foodLogger.findByIdAndUpdate(
       req.params.id,
       { meal, timeOfDay, calories },
       { new: true } // Return the updated document
