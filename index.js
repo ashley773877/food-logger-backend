@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import { conn } from './db/conn.js';conn();
 import './load.Env.js'
 import userRouter from './routes/users.js'
+import foodRouter from './routes/foodLogger.js'
+
 
 
 
@@ -18,7 +20,7 @@ app.use(express.json()); // to receive data in the body
 app.use(express.urlencoded({extended: true})); // allow data in url string
 
 app.use('/api/users', userRouter); 
-//app.use('/signup', userRouter);
+app.use('/api/foodlogs', foodRouter);
 
 
 // GET to test route 
