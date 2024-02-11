@@ -20,6 +20,7 @@ DEPENDENCIES:
 5. dotenv
 6. Styled-components 
 7. bcrypt
+8.react-bootstrap
 (devdependency)
 1. nodemon
 

@@ -20,6 +20,13 @@ const foodLoggerSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    Date: {
+    type: Date,
+    default: Date.now
+},
+   
+   
+    
    
 
 }, {timestamps: true});
