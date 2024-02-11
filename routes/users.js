@@ -74,6 +74,33 @@ router.put("/:id", async (req, res) => {
 router.post('/logout', (req, res) => {
     res.status(200).json({ message: 'Logout successful.' });
   });
+
+  // POST for user sign in (authentication)
+  router.post('/signin', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      // if user exist verfiy password
+      const user = await User.findOne({ email });
+      if (!user || !await bcrypt.compare(password, user.password)) {
+        return res.status(401).json({ message: 'Invalid email or password' });
+      }
+      res.status(200).json({ user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+  
+  
+
+
+
+
+
+
+  export default router;
+
+
 // // POST to create new user and foodlog
 //   router.post("/signup", async (req, res) => {
 //     console.log(req.body);
@@ -97,4 +124,3 @@ router.post('/logout', (req, res) => {
 //   });
 
 
-export default router;
