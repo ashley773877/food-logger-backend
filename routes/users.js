@@ -79,6 +79,11 @@ router.post('/logout', (req, res) => {
   router.post('/signin', async (req, res) => {
     try {
       const { email, password } = req.body;
+      // making sure username and pass requirements are met
+      if (password.length < 6 || password.length > 50) {
+        return res.status(400).json({ message: 'Password must be between 6 and 50 characters.' });
+      }
+      
       // if user exist verfiy password
       const user = await User.findOne({ email });
       if (!user || !await bcrypt.compare(password, user.password)) {

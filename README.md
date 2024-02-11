@@ -21,6 +21,7 @@ DEPENDENCIES:
 6. Styled-components 
 7. bcrypt
 8.react-bootstrap
+9. Axios 
 (devdependency)
 1. nodemon
 
