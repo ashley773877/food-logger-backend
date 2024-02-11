@@ -75,7 +75,7 @@ router.post('/logout', (req, res) => {
     res.status(200).json({ message: 'Logout successful.' });
   });
 
-  // POST for user sign in (authentication)
+  // POST for user SIGN IN (authentication)
   router.post('/signin', async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -90,7 +90,27 @@ router.post('/logout', (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
-  
+
+  // POST for user SIGN UP
+  router.post('/signup', async (req, res) => {
+    try {
+      const { username, email, password, age, gender } = req.body;
+      // checks if user with email already exist
+      const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(409).json({ message: 'User with this email already exists' });
+    }
+// create a new user
+      const newUser = new User({ username, email, password, age, gender });
+        await newUser.save();
+        res.status(201).json({ user: newUser });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+    });
+
+
   
 
 
