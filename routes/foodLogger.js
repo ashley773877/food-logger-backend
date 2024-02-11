@@ -82,6 +82,28 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// GET food logs by date
+router.get('/by-date'), async (req, res) => {
+  try {
+    const {date} = req.query
+
+    const [month, day, year] = date.split('/');
+    
+    const parsedDate = new Date(`${year}-${month}-${day}T00:00:00.000Z`);
+
+    const foodLogs = await foodLogger.find({
+      date: {
+        $gte: parsedDate,
+        $lt: new Date(parsedDate.getTime() + 24 * 60 * 60 * 1000), // Add 1 day to include the entire day
+      },
+    });
+    res.status(200).json(foodLogs)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({message: 'Internal server error'})
+  }
+}
+
 
 
 
