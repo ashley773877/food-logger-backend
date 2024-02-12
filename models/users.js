@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-//import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt';
 
-//const SALT_ROUNDS = 8; // indiciates how strong
+const SALT_ROUNDS = 8; // indiciates how strong
 //the has is going to be (8-12 range) the higher the number
 //the longer it will take 
 
@@ -48,13 +48,13 @@ usersSchema.index({username: 1}) // this is for creating an index
 //which is a folder that will only show you the usernames
 usersSchema.index({email: 1})
 
-// usersSchema.pre('save', async function(next) {
-//     // if the password has not change continue
-//     if (!this.isModified("password")) return next();
+usersSchema.pre('save', async function(next) {
+    // if the password has not change continue
+    if (!this.isModified("password")) return next();
 
-//     this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
-//     return next();
-//});
+    this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
+    return next();
+});
 
 
 

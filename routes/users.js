@@ -1,5 +1,6 @@
 import {Router} from 'express'
 import User from '../models/users.js'
+import bcrypt from 'bcrypt'
 //import foodLogger from '../models/foodLogger.js';
 
 
@@ -25,15 +26,15 @@ router.get('/', async (req, res) => {
 //       }
   
       // to Create a new user
-      const newUser = new User({ username, email, password });
-      await newUser.save();
-      res.json(newUser)
-    } catch (error) {
-    console.error(error);
-  //  
-   res.status(500).json({ message: 'Internal server error' });
-   }
-  });
+  //     const newUser = new User({ username, email, password });
+  //     await newUser.save();
+  //     res.json(newUser)
+  //   } catch (error) {
+  //   console.error(error);
+  // //  
+  //  res.status(500).json({ message: 'Internal server error' });
+  //  }
+  // });
 
  
  // GET returns a user by id 
