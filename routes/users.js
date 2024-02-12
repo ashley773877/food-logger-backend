@@ -13,16 +13,16 @@ router.get('/', async (req, res) => {
     res.status(200).json(users); // then responding wtih all the users in there 
 });
 
-// POST to create a user 
-router.post('/Users', async (req, res) => {
-    try {
-      const { username, email, password } = req.body;
+// // POST to create a user 
+// router.post('/Users', async (req, res) => {
+//     try {
+//       const { username, email, password } = req.body;
   
-      // to Check if user already exists by checking email
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        return res.status(400).json({ message: 'Email already exists. Please use a different email.' });
-      }
+//       // to Check if user already exists by checking email
+//       const existingUser = await User.findOne({ email });
+//       if (existingUser) {
+//         return res.status(400).json({ message: 'Email already exists. Please use a different email.' });
+//       }
   
       // to Create a new user
       const newUser = new User({ username, email, password });
