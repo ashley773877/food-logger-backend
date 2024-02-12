@@ -3,23 +3,50 @@ import foodLogger from '../models/foodLogger.js'
 
 const router = new Router()
 
-// Create a new food log
-router.post('/logs', async (req, res) => {
-    try {
-      const {user_id, meal, timeOfDay, calories } = req.body;
+
+// POST for creating a foodlog and associate with user 
+router.post('/', async (req, res) => {
+  try {
+    const { meal, timeOfDay, calories, date, user_id} = req.body;
+    // const userId = getUserIdFromRequest(req.user_id); 
+
+    // create new foodlog associated with user
+    const newFoodLog = new foodLogger({
+      user_id,
+      meal,
+      timeOfDay,
+      calories,
+      date,
+    });
+    await newFoodLog.save();
+    res.status(201).json(newFoodLog);
+  } catch (error) {
+    console.error('Error creating food log:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
+
+
+
+// // Create a new food log
+// router.post('/logs', async (req, res) => {
+//     try {
+//       const {user_id, meal, timeOfDay, calories } = req.body;
   
-      // Create a new food log
-      const newFoodLog = new foodLogger({ user_id, meal, timeOfDay, calories });
-      await newFoodLog.save();
-      res.status(201).json(newFoodLog);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-  }); 
+//       // Create a new food log
+//       const newFoodLog = new foodLogger({ user_id, meal, timeOfDay, calories });
+//       await newFoodLog.save();
+//       res.status(201).json(newFoodLog);
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: 'Internal server error' });
+//     }
+//   }); 
 
   // Get all food logs
-router.get('/foodlogs', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
       const foodLogs = await foodLogger.find();
       res.status(200).json(foodLogs);
@@ -29,7 +56,7 @@ router.get('/foodlogs', async (req, res) => {
     }
   });
   // GET food log by ID
-router.get('/foodlogs/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const foodLog = await foodLogger.findById(req.params.id);
     
@@ -45,7 +72,7 @@ router.get('/foodlogs/:id', async (req, res) => {
 });
 
 // Update a food log by ID
-router.put('/foodlogs/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const { meal, timeOfDay, calories } = req.body;
 
