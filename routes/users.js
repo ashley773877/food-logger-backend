@@ -14,28 +14,6 @@ router.get('/', async (req, res) => {
     res.status(200).json(users); // then responding wtih all the users in there 
 });
 
-// // POST to create a user 
-// router.post('/Users', async (req, res) => {
-//     try {
-//       const { username, email, password } = req.body;
-  
-//       // to Check if user already exists by checking email
-//       const existingUser = await User.findOne({ email });
-//       if (existingUser) {
-//         return res.status(400).json({ message: 'Email already exists. Please use a different email.' });
-//       }
-  
-      // to Create a new user
-  //     const newUser = new User({ username, email, password });
-  //     await newUser.save();
-  //     res.json(newUser)
-  //   } catch (error) {
-  //   console.error(error);
-  // //  
-  //  res.status(500).json({ message: 'Internal server error' });
-  //  }
-  // });
-
  
  // GET returns a user by id 
  router.get('/:id', async (req, res) => {
@@ -71,10 +49,10 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// POST for user logout 
-router.post('/logout', (req, res) => {
-    res.status(200).json({ message: 'Logout successful.' });
-  });
+// // POST for user logout 
+// router.post('/logout', (req, res) => {
+//     res.status(200).json({ message: 'Logout successful.' });
+//   });
 
   // POST for user SIGN IN (authentication)
   router.post('/signin', async (req, res) => {
@@ -122,7 +100,14 @@ router.post('/logout', (req, res) => {
       res.json({ message: 'Logout successful' });
 });
 
-
+// GET route to check is user is signed in to make food logs 
+// router.get('/check-auth', (req, res) => {
+//   if // Check authentication status  {
+//     res.json({ authenticated: true });
+//   } else {
+//     res.json({ authenticated: false });
+//   }
+// });
   
 
 
@@ -131,28 +116,5 @@ router.post('/logout', (req, res) => {
 
 
   export default router;
-
-
-// // POST to create new user and foodlog
-//   router.post("/signup", async (req, res) => {
-//     console.log(req.body);
-//     try {
-//       const { user, foodLogger } = req.body;
-  
-//       // Create a new user
-//       const newUser = await User.create(user);
-  
-//       // Create a new food logger associated with the user
-//       const newFoodLog = await FoodLogger.create({
-//         user_id: newUser._id,
-//         ...foodLogger,
-//       });
-  
-//       res.status(203).json({ user: newUser, foodLog: newFoodLog });
-//     } catch (error) {
-//       console.log(error);
-//       res.status(500).json({ message: 'Internal server error' });
-//     }
-//   });
 
 

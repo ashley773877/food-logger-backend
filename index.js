@@ -13,6 +13,7 @@ import foodRouter from './routes/foodLogger.js'
 const app = express()
 const PORT = process.env.PORT || 4000;
 
+;
 //middlewears 
 app.use(cors()); // allows frontend to connect to backend
 app.use(morgan('dev')); // logger so you can see whats coming in 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended: true})); // allow data in url string
 
 app.use('/api/users', userRouter); 
 app.use('/api/foodlogs', foodRouter);
+
 
 
 // GET to test route 

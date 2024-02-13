@@ -22,6 +22,7 @@ DEPENDENCIES:
 7. bcrypt
 8.react-bootstrap
 9. Axios 
+10.Passport-local
 (devdependency)
 1. nodemon
 
