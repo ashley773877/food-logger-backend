@@ -117,6 +117,11 @@ router.post('/logout', (req, res) => {
       }
     });
 
+    // POST to LOGOUT 
+    router.post('/logout', (req, res) => {
+      res.json({ message: 'Logout successful' });
+});
+
 
   
 

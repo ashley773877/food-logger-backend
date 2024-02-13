@@ -40,6 +40,11 @@ ROUTES for users:
 5. PUT to ubdate user
 6. DELETE user by id
 7. POST to create new user and foodlogger 
+8. POST to get foodlog by date
+
+APIs 
+1. foodloggers
+2. third party API: https://type.fit/api/quotes
 
 
 
