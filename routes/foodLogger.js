@@ -1,4 +1,4 @@
-import {Router} from 'express'
+import {Router, request} from 'express'
 import foodLogger from '../models/foodLogger.js'
 
 const router = new Router()
@@ -120,7 +120,7 @@ router.delete('/:id', async (req, res) => {
 //   }
 // }
  // GEt foodlogs by date pt.2 
- router.post('/by-date', async (req, res) => {
+ router.post('/by-date/:user_id', async (req, res) => {
   try {
     const { date, meal, timeOfDay, calories } = req.body;
 console.log(date)
@@ -138,6 +138,7 @@ console.log(date)
         $gte: parsedDate,
         $lt: new Date(parsedDate.getTime() + 24 * 60 * 60 * 1000), // Add 1 day to include the entire day
       },
+      user_id: req.params.user_id
       // meal: meal,
       // timeOfDay: timeOfDay,
       // calories: calories,

@@ -3,8 +3,9 @@
 this is a fitness food logger app where you will be able to 
 - create an account
 - log the foods you have eaten for the day
-- keep a history and track of the foods you have eaten
-- read motivational qoutes to keep you on track with your diet 
+- keep a history and track of the foods you have eaten by date
+
+Link to website: 
 
 - link to BACKEND repo
 1. https://github.com/ashley773877/food-logger-backend.git 
@@ -26,7 +27,11 @@ DEPENDENCIES:
 (devdependency)
 1. nodemon
 
-
+refernces
+1. mdn Web Docs https://developer.mozilla.org/en-US/docs/Web/CSS/font-style
+2. web styles sheets https://www.w3.org/Style/Examples/007/fonts.en.html
+3. images: https://www.freepik.com/free-photos-vectors/healthy-eating/2#uuid=0bae128b-130e-49e4-abe0-dd79ea50e61c
+4. font styles: https://fonts.google.com/selection/embed
 
 
 
@@ -48,7 +53,10 @@ APIs
 2. third party API: https://type.fit/api/quotes
 
 
-
+future Updates
+1. column where all calories for the day can be added up
+2. alert that lets the user know they are signed in or signed out
+3. create a user profile for the UI 
 
 
 
