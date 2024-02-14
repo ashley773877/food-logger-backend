@@ -49,11 +49,6 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-// // POST for user logout 
-// router.post('/logout', (req, res) => {
-//     res.status(200).json({ message: 'Logout successful.' });
-//   });
-
   // POST for user SIGN IN (authentication)
   router.post('/signin', async (req, res) => {
     try {
@@ -100,14 +95,7 @@ router.put("/:id", async (req, res) => {
       res.json({ message: 'Logout successful' });
 });
 
-// GET route to check is user is signed in to make food logs 
-// router.get('/check-auth', (req, res) => {
-//   if // Check authentication status  {
-//     res.json({ authenticated: true });
-//   } else {
-//     res.json({ authenticated: false });
-//   }
-// });
+
   
 
 
