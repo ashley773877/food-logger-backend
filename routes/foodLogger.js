@@ -120,7 +120,7 @@ router.delete('/:id', async (req, res) => {
 //   }
 // }
  // GET foodlogs by date pt.2 
- router.post('/by-date', async (req, res) => {
+ router.post('/by-date/:user_id', async (req, res) => {
   try {
     const { date, meal, timeOfDay, calories } = req.body;
 console.log(date)
@@ -129,7 +129,6 @@ console.log(date)
     }
 
     const [month, day, year] = date.split('/');
-   // const parsedDate = new Date(`${year}-${month}-${day}T00:00:00.000Z`);
     const parsedDate = new Date(date);
     console.log(parsedDate);
   
