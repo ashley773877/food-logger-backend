@@ -57,7 +57,7 @@ future Updates
 1. column where all calories for the day can be added up
 2. alert that lets the user know they are signed in or signed out
 3. create a user profile for the UI 
-4. alert to sign in/ sign up in order to use the application
+
 
 
 
