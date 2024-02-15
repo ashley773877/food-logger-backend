@@ -119,8 +119,8 @@ router.delete('/:id', async (req, res) => {
 //     res.status(400).json({ message: 'Invalid date parameter' });
 //   }
 // }
- // GEt foodlogs by date pt.2 
- router.post('/by-date/:user_id', async (req, res) => {
+ // GET foodlogs by date pt.2 
+ router.post('/by-date', async (req, res) => {
   try {
     const { date, meal, timeOfDay, calories } = req.body;
 console.log(date)
@@ -136,9 +136,9 @@ console.log(date)
     const foodLogs = await foodLogger.find({
       Date: {
         $gte: parsedDate,
-        $lt: new Date(parsedDate.getTime() + 24 * 60 * 60 * 1000), // Add 1 day to include the entire day
+        $lt: new Date(parsedDate.getTime() + 24 * 60 * 60 * 1000), 
       },
-      user_id: req.params.user_id
+      user_id: req.params.user_id,
       // meal: meal,
       // timeOfDay: timeOfDay,
       // calories: calories,
